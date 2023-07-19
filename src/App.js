@@ -1,11 +1,14 @@
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
+import HomePage from './component/pages/HomePage';
+import AboutPage from './component/pages/AboutPage';
+import ContactPage from './component/pages/ContactPage';
 function App() {
   return (
     <div className="container">
- <h2>UMS application</h2>
-
-
+    <HomePage/>
+    <AboutPage/>
+    <ContactPage/>
     </div>
   );
 }
