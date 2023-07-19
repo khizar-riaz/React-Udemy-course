@@ -9,14 +9,18 @@ class Count extends Component {
     };
   }
   increase() {
-    this.setState(
+    /*this.setState(
       {
         c: this.state.c + 1,
       },
       () => {
         console.log(this.state.c);
       }
-    );
+    ); */
+
+    this.setState ((prevState, props) => ({
+     c: prevState.c+1
+    }), () => { console.log(this.state.c)});
   }
 
   render() {
