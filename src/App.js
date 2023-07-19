@@ -1,12 +1,10 @@
 import './App.css';
-import HelloClass from './component/HelloClass';
-import Count from './component/Count';
+
 function App() {
   return (
     <div className="App">
- <h2>Hello App component</h2>
+ <h2>UMS application</h2>
 
-<Count/>
 
     </div>
   );
