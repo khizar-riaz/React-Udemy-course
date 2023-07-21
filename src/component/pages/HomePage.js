@@ -13,11 +13,12 @@ function HomePage() {
     axios.get("http://localhost:5000/users")
     .then(function(response)
     {
-      console.log("a response",response);
+      console.log("a response",response.data); //async call
     }) //do something if the data is feteched successfully
     .catch(function(error){
       console.log("an error", error);
     }); //do something if there is an error
+    console.log("after axios api call");
   }
   return (
     <div>HomePage</div>
