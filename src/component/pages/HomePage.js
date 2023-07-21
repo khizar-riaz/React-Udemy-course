@@ -14,6 +14,8 @@ function HomePage() {
   const getAllUsersWithAwait = async () =>{
     const result =  await axios.get("http://localhost:5000/users");
     console.log(result);
+    setusers(result.data);
+
     console.log("after axios call");
   }
   const getAllUsers = () =>{
