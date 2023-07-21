@@ -6,9 +6,16 @@ function HomePage() {
   const [users, setusers] = useState([]); //we are creating a users array and its setter method and its an empty array
    
   useEffect(()=>{
-    getAllUsers();
+    //getAllUsers();
+    getAllUsersWithAwait();
   }, []); //empty array to load content once
 
+
+  const getAllUsersWithAwait = async () =>{
+    const result =  await axios.get("http://localhost:5000/users");
+    console.log(result);
+    console.log("after axios call");
+  }
   const getAllUsers = () =>{
     axios.get("http://localhost:5000/users")
     .then(function(response)
