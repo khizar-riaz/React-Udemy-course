@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg  bg-info">
@@ -38,7 +39,7 @@ function NavBar() {
             </li>
           </ul>
         </div>
-  <Button variant="outline-light">Add User</Button>      
+        <Link to='/users/add' className="btn btn-outline-light">Add User</Link>
       </div>
     </nav>
   );
