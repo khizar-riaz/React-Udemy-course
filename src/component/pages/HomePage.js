@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 function HomePage() {
   const [users, setusers] = useState([]); //we are creating a users array and its setter method and its an empty array
 
@@ -38,20 +39,23 @@ function HomePage() {
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {
-            users.map((user, index)=> (
-              <tr>
-              <td>{index+1}</td>
+          {users.map((user, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>{user.phone}</td>
-            </tr>   
-            ))
-          }
-     
+              <td>
+                <Link to='' className="btn btn-info me-2">View</Link>
+                <Link to='' className="btn btn-outline-info me-2">Edit</Link>
+                <Link to='' className="btn btn-danger">Delete</Link>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </div>
