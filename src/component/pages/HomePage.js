@@ -51,7 +51,7 @@ function HomePage() {
               <td>{user.phone}</td>
               <td>
                 <Link to='' className="btn btn-info me-2">View</Link>
-                <Link to='' className="btn btn-outline-info me-2">Edit</Link>
+                <Link to={`/users/edit/${user.id}`} className="btn btn-outline-info me-2">Edit</Link>
                 <Link to='' className="btn btn-danger">Delete</Link>
               </td>
             </tr>

@@ -7,6 +7,7 @@ import NavBar from "./component/layout/NavBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PageNotFound from "./component/pages/PageNotFound";
 import AddUser from "./component/user/AddUser";
+import EditUser from "./component/user/EditUser";
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/about" element={<AboutPage />} />
           <Route exact path="/contact" element={<ContactPage />} />
           <Route exact path="/users/add" element={<AddUser />} />
+          <Route exact path="/users/edit/:userId" element={<EditUser />} />
           <Route  path="*" element={<PageNotFound />} />
         </Routes>
       </div>
