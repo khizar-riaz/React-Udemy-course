@@ -16,12 +16,12 @@ function HomePage() {
     setusers(result.data);
 
     console.log("after axios call");
-  }
+  };
 
-   const deleteUser = async (userId) => {
-    await  axios.delete(`http://localhost:5000/users/${userId}`);
+  const deleteUser = async (userId) => {
+    await axios.delete(`http://localhost:5000/users/${userId}`);
     getAllUsersWithAwait();
-   }
+  };
 
   const getAllUsers = () => {
     axios
@@ -56,7 +56,7 @@ function HomePage() {
               <td>{user.email}</td>
               <td>{user.phone}</td>
               <td>
-                <Link to="" className="btn btn-info me-2">
+                <Link to={`/users/view/${user.id}`} className="btn btn-info me-2">
                   View
                 </Link>
                 <Link
@@ -65,7 +65,9 @@ function HomePage() {
                 >
                   Edit
                 </Link>
-                 <Button onClick={() => deleteUser(user.id)} variant="danger">Delete</Button>
+                <Button onClick={() => deleteUser(user.id)} variant="danger">
+                  Delete
+                </Button>
               </td>
             </tr>
           ))}
