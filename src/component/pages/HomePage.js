@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 function HomePage() {
   const [users, setusers] = useState([]); //we are creating a users array and its setter method and its an empty array
@@ -16,7 +16,13 @@ function HomePage() {
     setusers(result.data);
 
     console.log("after axios call");
-  };
+  }
+
+   const deleteUser = async (userId) => {
+    await  axios.delete(`http://localhost:5000/users/${userId}`);
+    getAllUsersWithAwait();
+   }
+
   const getAllUsers = () => {
     axios
       .get("http://localhost:5000/users")
@@ -50,9 +56,16 @@ function HomePage() {
               <td>{user.email}</td>
               <td>{user.phone}</td>
               <td>
-                <Link to='' className="btn btn-info me-2">View</Link>
-                <Link to={`/users/edit/${user.id}`} className="btn btn-outline-info me-2">Edit</Link>
-                <Link to='' className="btn btn-danger">Delete</Link>
+                <Link to="" className="btn btn-info me-2">
+                  View
+                </Link>
+                <Link
+                  to={`/users/edit/${user.id}`}
+                  className="btn btn-outline-info me-2"
+                >
+                  Edit
+                </Link>
+                 <Button onClick={() => deleteUser(user.id)} variant="danger">Delete</Button>
               </td>
             </tr>
           ))}
